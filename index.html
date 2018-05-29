@@ -1,0 +1,162 @@
+<!--
+Mobile App to find your car
+Created by: Bruno Penna Barbosa de Almeida
+email: dbrunob@gmail.com
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Find your car - Mobile App</title>
+        <!--jQuery-->
+        <script src="js/lib/jquery-2.1.4.js"></script>
+        <!--jQuery mobile-->
+        <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+        <!--jQuery mobile css-->
+        <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+        <!--jQuery validation lib-->
+        <script src="js/lib/jquery.validate.js"></script>
+        <!--our scripts-->
+        <script src="js/database.js"></script>
+        <script src="js/findcarDAL.js"></script>
+        <script src="js/findcarFacade.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/global.js"></script>
+        <!--our stylesheet-->
+        <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    </head>
+    <body>
+        <!--home page-->
+        <div data-role="page" id="pageHome">
+            <header data-role="header" data-position="fixed">
+                <h1>Home</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a" class="ui-btn-active ui-state-persist"
+                        >Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="a">Add/Find</a></li>
+                        <li><a href="#pageFriends" data-icon="grid" data-theme="a">Search history</a></li>
+                    </ul>
+                </div>
+
+            </header>
+            <section data-role="content">
+                <h2 align="center">Find your car - Web App</h2>
+                <div align="center">
+                    <img src="img/findCar.png" width="60%" alt="Avengers">
+                </div>
+                <h3>Find your car - Web App</h3>
+                <p>Enter the information as make, model, year, and your contact to find the desired car.</p>
+                <h3>About Us</h3>
+                <p>Find your car is a web app build to make your life easier. With two simple touches on your
+                screen, you will be able to find all the information about the car you are willing to buy or sell.</p>
+
+                <p>Please feel free to contact me if you have any suggestions related to the app.</p>
+                <a href="#" data-role="button" data-icon="plus"> Call: 226-792-5558 </a>
+                <a href="mailto: dbrunob@gmail.com" data-role="button" data-icon="plus"> dbrunob@gmail.com </a>
+
+            </section>
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Bruno Almeida</h4>
+            </footer>
+
+
+        </div>
+
+        <!--Add page-->
+        <div data-role="page" id="pageAdd">
+            <header data-role="header" data-position="fixed">
+                <h1>Add/Search a car</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a" >Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="a" class="ui-btn-active ui-state-persist"
+                        >Add/Find</a></li>
+                        <li><a href="#pageFriends" data-icon="grid" data-theme="a">Search history</a></li>
+                    </ul>
+                </div>
+
+            </header>
+            <section data-role="content">
+                <div id="divMain">
+                    <h2 align="center">Add/Search a car</h2>
+                    <form id="frmAddInfo" name="frmAddFriendEnemy" data-ajax="false">
+
+                        <label for="txtNameAdd">Name </label>
+                        <input type="text" id="txtNameAdd" name="txtNameAdd"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter your name">
+
+                        <label for="txtAddress">Address </label>
+                        <input type="text" id="txtAddress" name="txtAddress"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter your address">
+
+                        <label for="txtCity">City </label>
+                        <input type="text" id="txtCity" name="txtCity"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter your city">
+
+                        <label for="txtPhoneNumber">Phone Number </label>
+                        <input type="text" id="txtPhoneNumber" name="txtPhoneNumber"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter your phone number">
+
+                        <label for="txtEmail">Email </label>
+                        <input type="text" id="txtEmail" name="txtEmail"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter your email">
+
+                        <label for="txtMake">Make </label>
+                        <input type="text" id="txtMake" name="txtMake"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter the vehicle make">
+
+                        <label for="txtModel">Model </label>
+                        <input type="text" id="txtModel" name="txtModel"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter the vehicle model">
+
+                        <label for="txtYear">Year </label>
+                        <input type="number" id="txtYear" name="txtYear"
+                               class="required" data-theme="a" data-clear-btn="true" placeholder="Enter the vehicle year">
+
+                        <button type="button" id="btnAdd" name="btnAdd" data-icon="plus" data-theme="b">
+                            Add
+                        </button>
+
+
+                    </form>
+                </div>
+
+            </section>
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Bruno Almeida </h4>
+            </footer>
+
+
+        </div>
+        <!--Search page-->
+        <div data-role="page" id="pageFriends">
+            <header data-role="header" data-position="fixed">
+                <h1>Search history</h1>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="#pageHome" data-icon="home" data-theme="a">Home</a></li>
+                        <li><a href="#pageAdd" data-icon="plus" data-theme="a">Add/Find</a></li>
+                        <li><a href="#pageFriends" data-icon="grid" data-theme="a" class="ui-btn-active ui-state-persist"
+                        >Search history</a></li>
+                    </ul>
+                </div>
+
+            </header>
+            <section data-role="content">
+                <h2 align="center">Search history</h2>
+                <ul id="lvAll" data-role="listview" class="ui-listview-inset">
+
+                </ul>
+
+            </section>
+            <footer data-role="footer" data-position="fixed">
+                <h4>&copy; Bruno Almeida</h4>
+            </footer>
+
+
+        </div>
+
+    </body>
+</html>
